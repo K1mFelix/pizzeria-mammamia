@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { formatPrice } from '../assets/helpers/formatPrice';
+import { formatPrice } from './assets/helpers/formatPrice';
 
 const CardPizza = ({ id, img, name, price, ingredients, desc }) => {
   return (
