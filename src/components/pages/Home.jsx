@@ -30,7 +30,6 @@ const Home = () => {
   return (
     <>
       <Header />
-
       <div className="container my-5">
         <div className="row g-4">
           {pizzas.map((pizza) => (
@@ -50,5 +49,4 @@ const Home = () => {
     </>
   );
 };
-
 export default Home;

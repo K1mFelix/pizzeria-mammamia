@@ -1,10 +1,4 @@
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-body {
-    font-family: "Open Sans", sans-serif;
-}
+.card-title,
+ul.list-unstyled.ms-3.flex-grow-1 {
+    text-transform: capitalize;
+} 

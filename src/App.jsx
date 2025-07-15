@@ -1,35 +1,56 @@
 import './App.css'
-import {Route, Routes} from 'react-router-dom'
-
+import { Route, Routes } from 'react-router-dom'
 import Footer from './components/layouts/Footer'
 import Navbar from './components/layouts/Navbar'
-
 import Home from './components/pages/Home'
 import Login from './components/pages/Login'
 import Pizza from './components/pages/Pizza'
 import Register from './components/pages/Register'
 import Cart from './components/pages/Cart'
 import NotFound from './components/pages/NotFound'
-
 import Profile from './components/Profile'
-
+import ProtectedRoute from './components/ProtectedRoute'  
+import PublicRoute from './components/PublicRoute'        
 
 function App() {
-
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/pizza/:pizzaId" element={<Pizza />} />
-        <Route path="/home" element={<Home/>} /> 
-        <Route path="/login" element={<Login/>} />
-        <Route path="/register" element={<Register/>} />
-        <Route path="/cart" element={<Cart/>} />
-        <Route path="/profile" element={<Profile/>} />
-        <Route path="*" element={<NotFound/>} />
+        <Route path="/cart" element={<Cart />} />
+
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   )
 }
